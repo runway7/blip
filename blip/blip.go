@@ -1,4 +1,4 @@
-package hello
+package blip
 
 import (
 	"encoding/json"
@@ -11,14 +11,14 @@ func init() {
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
-  w.Header().Add("Content-Type", "application/json")
+	w.Header().Add("Content-Type", "application/json")
 
 	m := map[string]string{
 		"latLong": r.Header.Get("X-AppEngine-CityLatLong"),
 		"city":    r.Header.Get("X-AppEngine-City"),
-    "region": r.Header.Get("X-AppEngine-Region"),
-    "country": r.Header.Get("X-AppEngine-Country"),
-    "source": "https://github.com/sudhirj/blip",
+		"region":  r.Header.Get("X-AppEngine-Region"),
+		"country": r.Header.Get("X-AppEngine-Country"),
+		"source":  "https://github.com/sudhirj/blip",
 	}
 
 	js, err := json.Marshal(m)
@@ -27,7 +27,6 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
-
 
 	fmt.Fprint(w, string(js))
 
