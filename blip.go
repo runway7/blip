@@ -17,8 +17,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		"latLong": r.Header.Get("X-AppEngine-CityLatLong"),
 		"city":    r.Header.Get("X-AppEngine-City"),
 		"region":  r.Header.Get("X-AppEngine-Region"),
-		"country": r.Header.Get("X-AppEngine-Country"),
-		"source":  "https://github.com/sudhirj/blip",
+		"country": r.Header.Get("X-AppEngine-Country")
 	}
 
 	js, err := json.Marshal(m)
