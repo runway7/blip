@@ -1,4 +1,4 @@
-Blip: Very Simple GeoLocation
+Blip: Very Simple Geolocation
 ====
 
 Blip is a very simple JSON based user information API, powered by Google App Engine.
